@@ -1,0 +1,6 @@
+Exercise 1: Write a function, that will make the computer's play.
+
+create a variabel called ComputerChoice
+create an array with rock, paper, scissors
+create a function, that randomly choose 1 element from the array
+save the result in the variabel ComputerChoice
