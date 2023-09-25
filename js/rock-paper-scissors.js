@@ -26,22 +26,31 @@ function getPlayersChoice () {
 
 //compare Players choice with the computer choice and alert the winner
 
-if (PlayersChoice == ComputerChoice) {
-    alert("Undecided, " + PlayersChoice + " cant beat " + ComputerChoice + ", because it's the same.");
+function playRound (PlayersChoice, ComputerChoice) {
+
+    let win = "Congratulation, you won this round! " + PlayersChoice +" beats " + ComputerChoice + ".";
+    let lost = "Sorry you lost, " + ComputerChoice + " beats " + PlayersChoice + ".";
+    let undecided = "Undecided, " + PlayersChoice + " cant beat " + ComputerChoice + ", because it's the same.";
+
+   if (PlayersChoice == ComputerChoice) {
+    return alert(undecided);
 } else if (PlayersChoice == "Rock" && ComputerChoice == "Scissors") {
-    alert("Congratulation, you won this round! " + PlayersChoice +" beats " + ComputerChoice + ".");
+    return alert(win);
 } else if (PlayersChoice == "Rock" && ComputerChoice == "Paper") {
-    alert("Sorry you lost, " + ComputerChoice + " beats " + PlayersChoice + ".");
+    return alert(lost);
 } else if (PlayersChoice == "Paper" && ComputerChoice == "Rock") {
-    alert("Congratulation, you won this round! " + PlayersChoice +" beats " + ComputerChoice + ".");
+    return alert(win);
 } else if (PlayersChoice == "Paper" && ComputerChoice == "Scissors") {
-    alert("Sorry you lost, " + ComputerChoice + " beats " + PlayersChoice + "."); 
+    return alert(lost); 
 } else if (PlayersChoice == "Scissors" && ComputerChoice == "Rock") {
-    alert("Sorry you lost, " + ComputerChoice + " beats " + PlayersChoice + ".");
+    return alert(lost);
 } else if (PlayersChoice == "Scissors" && ComputerChoice == "Paper") {
-    alert("Congratulation, you won this round! " + PlayersChoice +" beats " + ComputerChoice + ".");
+    return alert(win);
 }
-    
+}
+
+ playRound(PlayersChoice, ComputerChoice);
+
 
 
 
