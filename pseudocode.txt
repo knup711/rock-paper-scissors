@@ -4,3 +4,14 @@ create a variabel called ComputerChoice
 create an array with rock, paper, scissors
 create a function, that randomly choose 1 element from the array
 save the result in the variabel ComputerChoice
+
+Exercise 2: Write a function that plays a single round of rock, paper, scissors.
+the function should return a string that declares the winner.
+
+a prompt for the player, in which he can enter rock, paper, scissors
+other strings return false message
+create a variabel PlayersChoice
+compare PlayersChoice with ComputerChoice
+if player wins print Congratulation, you won this round! PlayersChoice beats ComputerChoice.
+if player loses print: Sorry you lost, ComputerChoice beats PlayersChoice.
+if noone wins print: Undecided, PlayersChoice cant beat ComputerChoice, because it's the same.
