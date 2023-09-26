@@ -1,8 +1,10 @@
 const choices = ['Rock', 'Paper', 'Scissors'];
 
-let ComputerChoice = getComputerChoice();
+let playerWin = 0;
 
-let PlayersChoice = getPlayersChoice();
+let computerWin = 0;
+
+let roundCount = 0;
 
 //create the Computer choice
 
@@ -23,8 +25,21 @@ function getPlayersChoice () {
      return PlayersChoice;
 }
 
+//call the result
+
+function result () {
+    if (playerWin > computerWin) {
+        console.log("Congratulations! You won the game!");
+    } else if (playerWin < computerWin) {
+        console.log("Sorry, you lost the game. Try again!");
+    } else {
+        console.log("Undecided, you both got the same points! Try again!");
+    }
+}
+
 
 //compare Players choice with the computer choice and alert the winner
+
 
 function playRound (PlayersChoice, ComputerChoice) {
 
@@ -33,24 +48,44 @@ function playRound (PlayersChoice, ComputerChoice) {
     let undecided = "Undecided, " + PlayersChoice + " cant beat " + ComputerChoice + ", because it's the same.";
 
    if (PlayersChoice == ComputerChoice) {
-    return alert(undecided);
+    return console.log(undecided) + roundCount++ ;
 } else if (PlayersChoice == "Rock" && ComputerChoice == "Scissors") {
-    return alert(win);
+    return console.log(win) + playerWin++ + roundCount++ ;
 } else if (PlayersChoice == "Rock" && ComputerChoice == "Paper") {
-    return alert(lost);
+    return console.log(lost) + computerWin++ + roundCount++ ;
 } else if (PlayersChoice == "Paper" && ComputerChoice == "Rock") {
-    return alert(win);
+    return console.log(win) + playerWin++ + roundCount++ ;
 } else if (PlayersChoice == "Paper" && ComputerChoice == "Scissors") {
-    return alert(lost); 
+    return console.log(lost) + computerWin++ + roundCount++ ; 
 } else if (PlayersChoice == "Scissors" && ComputerChoice == "Rock") {
-    return alert(lost);
+    return console.log(lost) + computerWin++ + roundCount++ ;
 } else if (PlayersChoice == "Scissors" && ComputerChoice == "Paper") {
-    return alert(win);
-}
+    return console.log(win) + playerWin++ + roundCount++ ;
+} 
+  //  return playerWin + computerWin + roundCount;
 }
 
- playRound(PlayersChoice, ComputerChoice);
+//creating a game with 5 rounds and then call the result
 
+function game() {
+for (i = 0; i <= 4; i++) {
+
+    let ComputerChoice = getComputerChoice();
+    let PlayersChoice = getPlayersChoice();
+
+    playRound(PlayersChoice, ComputerChoice);
+
+   // console.log(playerWin);
+   // console.log(computerWin);
+   //  console.log(roundCount;
+
+}
+    return result();
+}
+
+//starting the game
+
+game();
 
 
 
