@@ -9,9 +9,17 @@ Exercise 2: Write a function that plays a single round of rock, paper, scissors.
 the function should return a string that declares the winner.
 
 a prompt for the player, in which he can enter rock, paper, scissors
-other strings return false message
 create a variabel PlayersChoice
 compare PlayersChoice with ComputerChoice
 if player wins print Congratulation, you won this round! PlayersChoice beats ComputerChoice.
 if player loses print: Sorry you lost, ComputerChoice beats PlayersChoice.
 if noone wins print: Undecided, PlayersChoice cant beat ComputerChoice, because it's the same.
+
+Exercise 3: Write a NEW function called game(). Use the previous function inside of 
+this one to play a 5 round game that keeps score and reports a winner or loser at the end.
+
+create a function which is calling the result of the 5 rounds
+create ComputerChoice
+create PlayersChoice
+loop the playround 5 times
+return the result
