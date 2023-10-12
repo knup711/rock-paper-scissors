@@ -1,39 +1,60 @@
 const choices = ['Rock', 'Paper', 'Scissors'];
 
 let playerWin = 0;
-
 let computerWin = 0;
-
 let roundCount = 0;
+let remi = 0;
+let playersChoice;
+let computerChoice = getComputerChoice();
+
+let resultbox = document.querySelector(".resultbox");
+let content = document.createElement ("p");
+let resulttext = document.createElement ("p");
+let plrWin = document.querySelector(".plrWin");
+plrWin.textContent = playerWin;
+let playround = document.querySelector(".playround");
+playround.textContent = roundCount;
+let cmptrWin = document.querySelector(".cmptrWin");
+cmptrWin.textContent = computerWin;
+let remis = document.querySelector(".remis");
+remis.textContent = remi;
+
+
 
 //create the Computer choice
 
 function getComputerChoice () {
-    let ComputerChoice = choices[Math.floor(Math.random() * 3)];
+    let computerChoice = choices[Math.floor(Math.random() * 3)];
 
-    return ComputerChoice;
+    return computerChoice;
 
 }
 
 //create the Players choice
 
-function getPlayersChoice () {
-     let Playersprompt = prompt('Please choose rock, paper or scissors');
+function getPlayersChoice() {
+let div = document.querySelector("div");
 
-     let PlayersChoice = Playersprompt.charAt(0).toUpperCase() + Playersprompt.slice(1).toLowerCase();
+div.addEventListener("click", () => {
+    let playersChoice = event.target.id;
+    playRound(playersChoice, computerChoice);
+});
+    return;
+};
 
-     return PlayersChoice;
-}
 
 //call the result
 
 function result () {
     if (playerWin > computerWin) {
-        console.log("Congratulations! You won the game!");
+        resulttext.textContent = "Congratulations! You won the game!";
+        resultbox.appendChild(resulttext);
     } else if (playerWin < computerWin) {
-        console.log("Sorry, you lost the game. Try again!");
+        resulttext.textContent = "Sorry, you lost the game. Try again!";
+        resultbox.appendChild(resulttext);
     } else {
-        console.log("Undecided, you both got the same points! Try again!");
+        resulttext.textContent = "Undecided, you both got the same points! Try again!";
+        resultbox.appendChild(resulttext);
     }
 }
 
@@ -41,54 +62,64 @@ function result () {
 //compare Players choice with the computer choice and alert the winner
 
 
-function playRound (PlayersChoice, ComputerChoice) {
+function playRound (playersChoice, computerChoice) {
 
-    let win = "Congratulation, you won this round! " + PlayersChoice +" beats " + ComputerChoice + ".";
-    let lost = "Sorry you lost, " + ComputerChoice + " beats " + PlayersChoice + ".";
-    let undecided = "Undecided, " + PlayersChoice + " cant beat " + ComputerChoice + ", because it's the same.";
-
-   if (PlayersChoice == ComputerChoice) {
-    return console.log(undecided) + roundCount++ ;
-} else if (PlayersChoice == "Rock" && ComputerChoice == "Scissors") {
-    return console.log(win) + playerWin++ + roundCount++ ;
-} else if (PlayersChoice == "Rock" && ComputerChoice == "Paper") {
-    return console.log(lost) + computerWin++ + roundCount++ ;
-} else if (PlayersChoice == "Paper" && ComputerChoice == "Rock") {
-    return console.log(win) + playerWin++ + roundCount++ ;
-} else if (PlayersChoice == "Paper" && ComputerChoice == "Scissors") {
-    return console.log(lost) + computerWin++ + roundCount++ ; 
-} else if (PlayersChoice == "Scissors" && ComputerChoice == "Rock") {
-    return console.log(lost) + computerWin++ + roundCount++ ;
-} else if (PlayersChoice == "Scissors" && ComputerChoice == "Paper") {
-    return console.log(win) + playerWin++ + roundCount++ ;
-} 
-  //  return playerWin + computerWin + roundCount;
+    let win = "Congratulation, you won this round! " + playersChoice +" beats " + computerChoice + ".";
+    let lost = "Sorry you lost, " + computerChoice + " beats " + playersChoice + ".";
+    let undecided = "Undecided, " + playersChoice + " cant beat " + computerChoice + ", because it's the same.";
+   if (playersChoice == computerChoice) {
+    roundCount++;
+    remi++;
+    content.textContent = undecided;
+    resultbox.appendChild(content);
+    playround.textContent = roundCount;
+    remis.textContent = remi;
+} else if (playersChoice == "Rock" && computerChoice == "Scissors") {
+    roundCount++
+    playerWin++;
+    content.textContent = win;
+    resultbox.appendChild(content);
+    playround.textContent = roundCount;
+    plrWin.textContent = playerWin;
+} else if (playersChoice == "Rock" && computerChoice == "Paper") {
+    roundCount++;
+    computerWin++;
+    content.textContent = lost;
+    resultbox.appendChild(content);
+    playround.textContent = roundCount;
+    cmptrWin.textContent = computerWin;
+} else if (playersChoice == "Paper" && computerChoice == "Rock") {
+    roundCount++;
+    playerWin++;
+    content.textContent = win;
+    resultbox.appendChild(content);
+    playround.textContent = roundCount;
+    plrWin.textContent = playerWin;
+} else if (playersChoice == "Paper" && computerChoice == "Scissors") {
+    roundCount++;
+    computerWin++;
+    content.textContent = lost;
+    resultbox.appendChild(content);
+    playround.textContent = roundCount;
+    cmptrWin.textContent = computerWin;
+} else if (playersChoice == "Scissors" && computerChoice == "Rock") {
+    roundCount++;
+    computerWin++;
+    content.textContent = lost;
+    resultbox.appendChild(content);
+    playround.textContent = roundCount;
+    cmptrWin.textContent = computerWin;
+} else if (playersChoice == "Scissors" && computerChoice == "Paper") {
+    roundCount++;
+    playerWin++;
+    content.textContent = win;
+    resultbox.appendChild(content);
+    playround.textContent = roundCount;
+    plrWin.textContent = playerWin;
 }
+    return;
+};
 
-//creating a game with 5 rounds and then call the result
-
-function game() {
-for (i = 0; i <= 4; i++) {
-
-    let ComputerChoice = getComputerChoice();
-    let PlayersChoice = getPlayersChoice();
-
-    playRound(PlayersChoice, ComputerChoice);
-
-   // console.log(playerWin);
-   // console.log(computerWin);
-   //  console.log(roundCount;
-
-}
-    return result();
-}
-
-//starting the game
-
-game();
-
-
-
-
-
-
+for (i = 0; i < 5; i++) {
+    getPlayersChoice();
+};
