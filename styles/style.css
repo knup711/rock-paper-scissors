@@ -1,8 +1,8 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: #011A27;
-    color: #F0810F;
+    background-color: #00293c;
+    color: #F62A00;
     font-size: 24px;
     font-family: "Lucida Console", "Courier New", monospace;
 }
@@ -13,13 +13,19 @@ h1 {
 }
 
 button {
-    background-color: #F0810F;
-    color: #063852;
+    background-color: #F1F3CE;
+    color: #1E656D;
     border-radius: 16px;
     padding: 15px 32px;
-    border-color: #063852;
+    border-color: #1E656D;
     font-weight: bold;
     font-size: 24px;
+}
+
+button:hover {
+    background-color: #F62A00;
+    color: #F1F3CE;
+    border-color: #F1F3CE;
 }
 
 .container {
@@ -38,4 +44,5 @@ button {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    align-items: center;
 }
