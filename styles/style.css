@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #011A27;
+    color: #F0810F;
+    font-size: 24px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #F0810F;
+    color: #063852;
+    border-radius: 16px;
+    padding: 15px 32px;
+    border-color: #063852;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex: 1;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+}
+
+.resultbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
